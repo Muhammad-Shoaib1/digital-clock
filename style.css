@@ -1,0 +1,176 @@
+:root {
+  font-size: 10px;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(45deg, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  font-family: 'Lato', sans-serif;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes moveShapes {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-50%) translateX(50%);
+  }
+
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0.6;
+  z-index: -2;
+}
+
+.shape.square {
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.shape.circle {
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.shape.large {
+  width: 10rem;
+  height: 10rem;
+  animation: moveShapes 20s infinite;
+}
+
+.shape.medium {
+  width: 7rem;
+  height: 7rem;
+  animation: moveShapes 25s infinite;
+}
+
+.shape.small {
+  width: 5rem;
+  height: 5rem;
+  animation: moveShapes 30s infinite;
+}
+
+.clock-container {
+  position: relative;
+  padding: 2rem;
+  width: 90rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+  animation: pulse 3s infinite;
+  text-align: center;
+}
+
+.clock-container::before,
+.clock-container::after {
+  content: '';
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  right: -1rem;
+  bottom: -1rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: -1;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.05));
+}
+
+#clock {
+  font-size: 10rem;
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 1rem;
+  text-shadow: 0 0 1rem rgba(0, 0, 0, 0.7);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+/* Responsive font sizes */
+@media (max-width: 2600px) {
+  :root {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1440px) {
+  :root {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 6px;
+  }
+}
+
+@media (max-width: 425px) {
+  :root {
+    font-size: 4px;
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    font-size: 3.5px;
+  }
+}
+
+@media (max-width: 320px) {
+  :root {
+    font-size: 3px;
+  }
+
+}
